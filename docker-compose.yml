@@ -1,0 +1,44 @@
+version: '3.7'
+
+# Definição de volumes para persistência de dados
+volumes:
+  glpi:     # Volume para dados da aplicação GLPI
+  config:   # Volume para configurações da aplicação
+  files:    # Volume para arquivos da aplicação
+  log:      # Volume para logs da aplicação
+  db:       # Volume para dados do banco de dados MariaDB
+
+# Definição dos serviços (containers)
+services:
+  # Serviço para o banco de dados MariaDB
+  db:
+    image: mariadb:10.5
+    volumes:
+      - db:/var/lib/mysql
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=P@ssw0rd
+      - MYSQL_PASSWORD=P@ssw0rd
+      - MYSQL_DATABASE=glpi
+      - MYSQL_USER=glpi
+
+  # Serviço para a aplicação GLPI
+  app:
+    image: glpi:1.0.0
+    volumes:
+      - glpi:/var/www/glpi
+      - config:/etc/glpi
+      - files:/var/lib/glpi
+      - log:/var/log/glpi
+    restart: always
+    ports:
+      - 80:80
+    links:
+      - db
+    environment:
+      - MYSQL_PASSWORD=P@ssw0rd
+      - MYSQL_DATABASE=glpi
+      - MYSQL_USER=glpi
+      - MYSQL_HOST=db
