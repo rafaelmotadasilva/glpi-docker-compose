@@ -23,13 +23,13 @@ O GLPI é uma solução de software livre para gerenciamento de recursos de TI e
 ## Clone o repositório
 
 ```
-git clone https://github.com/rafaelmotadasilva/glpi.git
+git clone https://github.com/rafaelmotadasilva/glpi-docker.git
 ```
 
 ## Navegue até o diretório do projeto
 
 ```
-cd glpi
+cd glpi-docker
 ```
 
 ## Crie a imagem do GLPI
