@@ -35,13 +35,13 @@ cd glpi-docker
 ## Crie a imagem do GLPI
 
 ```
-docker build -t glpi:1.0.0 .
+sudo docker build -t glpi:1.0.0 .
 ```
 
 ## Inicie os serviços
 
 ```
-docker-compose up -d
+sudo docker-compose up -d
 ```
 
 ## Acesse o GLPI
