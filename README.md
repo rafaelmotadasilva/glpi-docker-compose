@@ -46,7 +46,7 @@ sudo docker-compose up -d
 
 ## Acesse o GLPI
 
-Abra seu navegador e acesse http://localhost. Você será redirecionado para a página de instalação do GLPI. Siga as instruções para concluir a instalação.
+Abra seu navegador e acesse http://IP-glpi. Você será redirecionado para a página de instalação do GLPI. Siga as instruções para concluir a instalação.
 
 ## Conclusão
 
