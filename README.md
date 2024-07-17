@@ -8,7 +8,6 @@ O GLPI é uma solução de software livre para gerenciamento de recursos de TI e
 
 ## Requisitos
 
-* Docker
 * Docker Compose
 
 ## Instruções
@@ -46,7 +45,7 @@ sudo docker-compose up -d
 
 ## Acesse o GLPI
 
-Abra seu navegador e acesse http://IP-glpi. Você será redirecionado para a página de instalação do GLPI. Siga as instruções para concluir a instalação.
+Abra seu navegador e acesse http://host. Você será redirecionado para a página de instalação do GLPI. Siga as instruções para concluir a instalação.
 
 ## Conclusão
 
