@@ -1,4 +1,4 @@
-# GLPI Dockerizado
+# GLPI com Docker Compose
 
 Este projeto fornece uma instância do GLPI (Gestão Livre de Parque de Informática) em um ambiente Dockerizado, incluindo um servidor MariaDB.
 
