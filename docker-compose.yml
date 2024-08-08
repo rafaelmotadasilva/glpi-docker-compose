@@ -19,8 +19,8 @@ services:
     ports:
       - 3306:3306
     environment:
-      - MYSQL_ROOT_PASSWORD=P@ssw0rd
-      - MYSQL_PASSWORD=P@ssw0rd
+      - MYSQL_ROOT_PASSWORD=root_pwd
+      - MYSQL_PASSWORD=glpi_pwd
       - MYSQL_DATABASE=glpi
       - MYSQL_USER=glpi
 
