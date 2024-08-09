@@ -40,7 +40,7 @@ RUN mkdir /var/log/glpi \
     && chown www-data. /var/www/glpi/marketplace
 
 # Movimentação de arquivos de configuração
-COPY php.ini /etc/php/8.2/apache2/
+COPY php.ini /etc/php/8.3/apache2/
 COPY 000-default.conf /etc/apache2/sites-available/
 COPY downstream.php /var/www/glpi/inc/
 COPY local_define.php /etc/glpi/
