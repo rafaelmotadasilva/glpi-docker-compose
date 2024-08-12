@@ -47,6 +47,12 @@ sudo docker-compose up -d
 
 Abra seu navegador e acesse http://host. Você será redirecionado para a página de instalação do GLPI. Siga as instruções para concluir a instalação.
 
+## Para parar os contêineres
+
+```bash
+docker-compose down
+```
+
 ## Conclusão
 
 Após seguir os passos acima, você terá o GLPI instalado e funcionando em um ambiente Dockerizado.
