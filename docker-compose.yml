@@ -18,6 +18,9 @@ services:
 
   app:
     image: glpi:1.0.0
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - glpi:/var/www/glpi
       - config:/etc/glpi
