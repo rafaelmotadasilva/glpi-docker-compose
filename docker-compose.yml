@@ -31,11 +31,6 @@ services:
       - 80:80
     links:
       - db
-    environment:
-      - MYSQL_PASSWORD=P@ssw0rd
-      - MYSQL_DATABASE=glpi
-      - MYSQL_USER=glpi
-      - MYSQL_HOST=db
     networks:
       - glpi-net
 
