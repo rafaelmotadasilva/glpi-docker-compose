@@ -26,7 +26,7 @@ git clone https://github.com/rafaelmotadasilva/glpi-docker-compose.git
 cd glpi-docker-compose
 ```
 
-## Execute o contêiner
+## Execute os contêineres
 
 ```
 sudo docker-compose up -d
