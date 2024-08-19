@@ -29,7 +29,7 @@ cd glpi-docker-compose
 ## Execute os contêineres
 
 ```
-sudo docker-compose up -d
+sudo docker-compose up --build -d
 ```
 
 ## Acesse o GLPI
