@@ -1,6 +1,6 @@
 FROM ubuntu/apache2
 
-MAINTAINER Rafael Mota <DevOps.rafaelmota@gmail.com>
+LABEL maintainer="Rafael Mota <devops.rafaelmota@gmail.com>"
 
 # Definindo variável de ambiente para o fuso horário UTC
 ENV TZ=UTC
@@ -49,7 +49,7 @@ COPY local_define.php /etc/glpi/
 RUN apache2ctl configtest
 
 LABEL description="rafaelmotadasilva/glpi"
-LABEL version="1.0.0"
+LABEL version="2.0.0"
 
 EXPOSE 80 443
 
