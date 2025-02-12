@@ -8,6 +8,7 @@ O GLPI é uma solução de software livre para gerenciamento de recursos de TI e
 
 ## Requisitos
 
+* Docker
 * Docker Compose
 
 ## Instruções
