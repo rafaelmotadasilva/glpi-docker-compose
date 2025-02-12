@@ -13,11 +13,10 @@ O GLPI é uma solução de software livre para gerenciamento de recursos de TI e
 ## Instruções
 
 1. [Clone o repositório](#clone-o-repositório)
-2. [Navegue até o diretório do projeto](#navegue-até-o-diretório-do-projeto)
-3. [Crie a imagem do GLPI](#crie-a-imagem-do-glpi)
-4. [Inicie os serviços](#inicie-os-serviços)
-5. [Acesse o GLPI](#acesse-o-glpi)
-8. [Conclusão](#conclusão)
+2. [Inicie os contêineres](#inicie-os-contêineres)
+3. [Acesse o GLPI](#acesse-o-glpi)
+4. [Para parar os contêineres](#para-parar-os-contêineres)
+5. [Conclusão](#conclusão)
 
 ## Clone o repositório
 
@@ -26,7 +25,7 @@ git clone https://github.com/rafaelmotadasilva/glpi-docker-compose.git
 cd glpi-docker-compose
 ```
 
-## Execute os contêineres
+## Inicie os contêineres
 
 ```
 sudo docker-compose up --build -d
