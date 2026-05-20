@@ -1,62 +1,74 @@
 # GLPI com Docker Compose
 
-Este projeto fornece uma instância do GLPI (Gestão Livre de Parque de Informática) em um ambiente Dockerizado, incluindo um servidor MariaDB.
+Deploy completo do GLPI (Gestão Livre de Parque de Informática) usando Docker Compose, com imagem customizada via Dockerfile e banco MariaDB.
 
-## Visão Geral
+## Stack
 
-O GLPI é uma solução de software livre para gerenciamento de recursos de TI e atendimento ao cliente. Este projeto fornece uma maneira fácil de implantar o GLPI em um ambiente Docker, permitindo rápida configuração e escalabilidade.
+- **GLPI** — imagem customizada com Apache e configurações pré-ajustadas
+- **MariaDB 10.5** — banco de dados com volume persistente
+- **Docker Compose** — orquestração dos serviços
 
-## Requisitos
-
-* Docker
-* Docker Compose
-
-## Instruções
-
-1. [Clone o repositório](#clone-o-repositório)
-2. [Inicie os contêineres](#inicie-os-contêineres)
-3. [Acesse o GLPI](#acesse-o-glpi)
-4. [Para parar os contêineres](#para-parar-os-contêineres)
-5. [Conclusão](#conclusão)
-
-## Clone o repositório
+## Estrutura
 
 ```
-git clone https://github.com/rafaelmotadasilva/glpi-docker-compose.git
-cd glpi-docker-compose
+.
+├── Dockerfile           # Imagem customizada do GLPI com Apache
+├── docker-compose.yml   # Orquestração dos serviços
+├── 000-default.conf     # VirtualHost Apache
+├── php.ini              # Configurações PHP ajustadas para o GLPI
+├── local_define.php     # Definições de caminhos do GLPI
+└── downstream.php       # Configuração de banco de dados
 ```
 
-## Inicie os contêineres
+## Pré-requisitos
 
-```
-sudo docker-compose up --build -d
-```
+- Docker
+- Docker Compose
 
-## Acesse o GLPI
-
-Abra seu navegador e acesse http://host. Você será redirecionado para a página de instalação do GLPI. Siga as instruções para concluir a instalação.
-
-## Para parar os contêineres
+## Como usar
 
 ```bash
-docker-compose down
+git clone https://github.com/rafaelmotadasilva/glpi-docker-compose.git
+cd glpi-docker-compose
+
+docker compose up -d --build
 ```
 
-## Conclusão
+Aguarde os containers subirem e acesse:
 
-Após seguir os passos acima, você terá o GLPI instalado e funcionando em um ambiente Dockerizado.
+```
+http://localhost
+```
 
-## Contribuição
+## Configuração padrão
 
-Se você tiver sugestões de melhorias ou correções para este guia, sinta-se à vontade para enviar uma pull request.
+| Variável | Valor padrão |
+|---|---|
+| Banco de dados | glpi |
+| Usuário DB | glpi |
+| Senha DB | glpi_pwd |
+| Porta | 80 |
 
-## Referências
+> Altere as credenciais no `docker-compose.yml` antes de usar em produção.
 
-- [Documentação oficial de instalação do GLPI](https://glpi-install.readthedocs.io/pt/latest/)
-- [Documentação oficial do Docker - Como criar um Dockerfile](https://docs.docker.com/engine/reference/builder/)
-- [Documentação oficial do Docker - Docker Compose File v3](https://docs.docker.com/compose/compose-file/compose-file-v3/)
-- [Documentação oficial do Ubuntu - Docker para administradores de sistema](https://ubuntu.com/server/docs/docker-for-system-admins)
+## Volumes persistentes
 
-## Licença
+| Volume | Conteúdo |
+|---|---|
+| `glpi` | Arquivos da aplicação |
+| `config` | Configurações |
+| `files` | Uploads e anexos |
+| `log` | Logs da aplicação |
+| `db` | Dados do MariaDB |
 
-Este projeto está licenciado sob a [Licença MIT](LICENSE).
+## Parar os containers
+
+```bash
+docker compose down
+```
+
+Para remover também os volumes:
+
+```bash
+docker compose down -v
+```
