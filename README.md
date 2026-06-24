@@ -12,13 +12,26 @@ Deploy completo do GLPI (Gestão Livre de Parque de Informática) usando Docker 
 
 ```
 .
-├── Dockerfile           # Imagem customizada do GLPI com Apache
-├── docker-compose.yml   # Orquestração dos serviços
-├── 000-default.conf     # VirtualHost Apache
-├── php.ini              # Configurações PHP ajustadas para o GLPI
-├── local_define.php     # Definições de caminhos do GLPI
-└── downstream.php       # Configuração de banco de dados
+├── Dockerfile               # Imagem customizada do GLPI com Apache
+├── docker-compose.yml       # Orquestração dos serviços
+├── 000-default.conf         # VirtualHost Apache
+├── php.ini                  # Configurações PHP ajustadas para o GLPI
+├── local_define.php         # Definições de caminhos do GLPI
+├── downstream.php           # Configuração de banco de dados
+└── zabbix-webhook/
+    ├── glpi_webhook.js      # Webhook Zabbix → GLPI (abre/resolve chamados)
+    └── README.md            # Documentação da integração Zabbix → GLPI
 ```
+
+## Integração com Zabbix
+
+O diretório `zabbix-webhook/` contém um script de webhook para o Zabbix que:
+
+- Abre chamados no GLPI automaticamente quando uma trigger dispara
+- Adiciona acompanhamentos em atualizações/ACKs
+- Resolve o chamado automaticamente quando o problema é recuperado
+
+Consulte [`zabbix-webhook/README.md`](zabbix-webhook/README.md) para configuração completa.
 
 ## Pré-requisitos
 
